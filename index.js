@@ -37,18 +37,20 @@ bot.on("message", message =>{
     }
 	//help menu
 	if(command === "help"){
-		message.channel.send(":potato: this is help menu. \n p!help \n p!comp \n p!potato \n p!stats");
+		message.channel.send(":potato: this is help menu. \n p!help \n p!art \n p!potato \n p!stats");
       }
 	 
 	 //random comp
-	if(command === "comp"){
+	if(command === "art"){
 		var methods = ["drawing", "3D modelling", "sketching", "painting", "pixel-arting", "making a minecraft build of"];
 		var method = Math.floor(Math.random() * methods.length);
 		var themes = ["a cat", "cats", "a potato", "potatos", "a dog", "dogs", "a fish", "fish", "a dragon", "dragons", "a wild jel", "mars", "stinky cheese", "an angler fish", "angler fish", "a whale", "whales"];
 		var theme = Math.floor(Math.random() * themes.length);
-		var actions = ["dying", ];
+		var actions = ["dying", "existing", "walking"];
 		var action = Math.floor(Math.random() * actions.length);
-			message.channel.send("Hmm, try " + methods[method] + " " + themes[theme] + " " + actions[action], ".");
+		var locations = ["on a mountain top looking out on an ocean view with a distant boat on the horizon and a blue sun", "underwater", "in space", "on mars", "where ever you want"];
+		var location = Math.floor(Math.random() * locations.length);
+			message.channel.send("Hmm, try " + methods[method] + " " + themes[theme] + " " + actions[action] + " " + locations[location] + ".");
 	}
 
 	//p!potato
@@ -65,7 +67,7 @@ bot.on("message", message =>{
 	
 	//set properties of embed (image)
 	.setColor("#FFBD33")
-	.setTitle("Here is your cheese!")
+	.setTitle("Here is your potato!")
 	.setImage(potatos[potato])
 
 	
@@ -78,10 +80,10 @@ bot.on("message", message =>{
 	message.channel.send(`serving **${bot.guilds.cache.size}** servers`);
 	}
 	//p!killniesbot
-	if (command === "killniesbot") {
+	if (command === "roastniesbot") {
 	var roasts = ["cheese? whats that? oh, that horrible stinky stuff, ew people actuall eat that?"];
 	var roast = Math.floor(Math.random() * roasts.length);
-	message.channel.send(roasts[roast]);
+	message.channel.send("<@752306939551154317>" + roasts[roast]);
 	}
 //end of main code
 });
