@@ -57,7 +57,7 @@ bot.on("message", message =>{
 	message.channel.send("Here :potato: ");
 	
 	//vars for randomisation
-	var potatos = ["https://api.time.com/wp-content/uploads/2020/04/Boss-Turns-Into-Potato.jpg", "https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/article/2020/05/07/study-potato-protein-a-winner-for-women/11369572-1-eng-GB/Study-Potato-protein-a-winner-for-women_wrbm_large.jpg",];
+	var potatos = ["https://api.time.com/wp-content/uploads/2020/04/Boss-Turns-Into-Potato.jpg", "https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/article/2020/05/07/study-potato-protein-a-winner-for-women/11369572-1-eng-GB/Study-Potato-protein-a-winner-for-women_wrbm_large.jpg"];
 	var potato = Math.floor(Math.random() * potatos.length);
 	
 	//set const for embed (image)
@@ -74,15 +74,15 @@ bot.on("message", message =>{
 	}
 
 	//P!stats command
-	if (command === "stats")
-	message.channel.send(`serving **${bot.guilds.cache.size}** servers`)
-
+	if (command === "stats"){
+	message.channel.send(`serving **${bot.guilds.cache.size}** servers`);
+	}
 	//p!killniesbot
-	if (command === "killniesbot")
-	var roasts = ["cheese? whats that? oh, that horrible stinky stuff, ew people actuall eat that?"]
-	var roast = Math.floor(Math.random() * roasts.length)
-	message.channel.send(roasts[roast])
-
+	if (command === "killniesbot") {
+	var roasts = ["cheese? whats that? oh, that horrible stinky stuff, ew people actuall eat that?"];
+	var roast = Math.floor(Math.random() * roasts.length);
+	message.channel.send(roasts[roast]);
+	}
 //end of main code
 });
 
