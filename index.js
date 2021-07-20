@@ -65,7 +65,7 @@ bot.on("message", message =>{
 	const potatoEmbed = new Discord.MessageEmbed()
 	
 	//set properties of embed (image)
-	.setColor("#FFBD33")
+	.setColor("#b79268")
 	.setTitle("Here is your potato!")
 	.setImage(potatos[potato])
 
