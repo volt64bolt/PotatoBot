@@ -46,9 +46,9 @@ bot.on("message", message =>{
 		var method = Math.floor(Math.random() * methods.length);
 		var themes = ["a cat", "cats", "a potato", "potatos", "a dog", "dogs", "a fish", "fish", "a dragon", "dragons", "a wild jel", "mars", "stinky cheese", "an angler fish", "angler fish", "a whale", "whales"];
 		var theme = Math.floor(Math.random() * themes.length);
-		var actions = ["dying, "];
+		var actions = ["dying", ];
 		var action = Math.floor(Math.random() * actions.length);
-			message.channel.send("Hmm, try " + methods[method] + themes[theme] + actions[action], ".");
+			message.channel.send("Hmm, try " + methods[method] + " " + themes[theme] + " " + actions[action], ".");
 	}
 
 	//p!potato
@@ -57,7 +57,7 @@ bot.on("message", message =>{
 	message.channel.send("Here :potato: ");
 	
 	//vars for randomisation
-	var potatos = ["https://freshpointlocal.co.uk/wp-content/uploads/2018/12/Potatoes-2.jpg", "https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/article/2020/05/07/study-potato-protein-a-winner-for-women/11369572-1-eng-GB/Study-Potato-protein-a-winner-for-women_wrbm_large.jpg", "https://api.time.com/wp-content/uploads/2020/04/Boss-Turns-Into-Potato.jpg, https://bellavitashop.co.uk/6180-large_default/potatoes-500g.jpg"];
+	var potatos = ["https://api.time.com/wp-content/uploads/2020/04/Boss-Turns-Into-Potato.jpg", "https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/article/2020/05/07/study-potato-protein-a-winner-for-women/11369572-1-eng-GB/Study-Potato-protein-a-winner-for-women_wrbm_large.jpg",];
 	var potato = Math.floor(Math.random() * potatos.length);
 	
 	//set const for embed (image)
@@ -79,7 +79,7 @@ bot.on("message", message =>{
 
 	//p!killniesbot
 	if (command === "killniesbot")
-	var roasts = [""]
+	var roasts = ["cheese? whats that? oh, that horrible stinky stuff, ew people actuall eat that?"]
 	var roast = Math.floor(Math.random() * roasts.length)
 	message.channel.send(roasts[roast])
 
