@@ -3,6 +3,7 @@
 
 
 //load discord.js library
+require('dotenv').config();
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
