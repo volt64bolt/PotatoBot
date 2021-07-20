@@ -36,14 +36,14 @@ bot.on('message', message =>{
     }
 	//help menu
 	if(command === 'help'){
-		message.channel.send(":cheese:  You've opened the magic help menu :astonished: ! Here are the commands: \n ``n!meme`` - Gets you a random cheese meme, :cheese:. \n ``n!cheese``- Gets you a random cheese pic, :cheese:. \n ``n!stonks`` Stonks go brr :cheese: <:Stonks_rising:705717804615204904>\n ``n!9ball`` - Get answers to ***all** your questions*, :cheese:🔮.\n ``n!ping`` pongs :cheese:\n ``n!server=down`` Report to staff that the server is offline :cheese: <:Stonks_falling:705717793823129660>\n ``n!flushed`` Flushes your message? 😳😳:cheese:\n ``n!game`` Play le game for une reward UwU :cheese\n ``n!owo`` OwOs your message? :cheese: :eye::lips::eye: :cheese:\n ``n!uwu`` Uwus your message? :cheese: 😌 :cheese:\n ``n!save`` Saves the server and your cheese UwU 💾 :cheese: 💾\n ``n!rainbow`` Gæs your message :cheese:  🏳️‍🌈🌈  (jk ❤️ no homo tho)  🏳️‍🌈🌈\n ``n!pinchme`` Pinches your nipples :cheese: 🤏🤌🤌 :cheese:\n ``n!whoami`` The cheese shall remind you as to who you are :cheese:🤔\n ``n!kill <@player>`` Murder everyone. HAHAHA <:IlikeyacutG:805732691638222859> :skull_crossbones: :cheese:\n ``n!bake <@player>`` I like em hot, I like 'em roasted :] :cheese: :fire:");
+		message.channel.send(":potato: this is help menu. \n p!help \n p!comp \n p!potato \n p!stats");
       }
 	 
 	 //random comp
 	if(command === 'comp'){
-		var methods = ["drawing, 3D modelling, sketching, painting, pixel-arting, making minecraft thingy of,"];
+		var methods = ["drawing, 3D modelling, sketching, painting, pixel-arting, making minecraft thingy of"];
 		var method = Math.floor(Math.random() * methods.length);
-		var themes = ["a cat"];
+		var themes = ["a cat, cats, a potato, potatos, a dog, dogs, a fish, fish, a dragon, dragons, a wild jel, mars, stinky cheese, an angler fish, angler fish, a whale, whales"];
 		var theme = Math.floor(Math.random() * themes.length);
 		var actions = ["dying, "];
 		var action = Math.floor(Math.random() * actions.length);
@@ -56,7 +56,7 @@ bot.on('message', message =>{
 	message.channel.send('There ya go :D :potato: ');
 	
 	//vars for randomisation
-	var potatos = [""];
+	var potatos = ["https://freshpointlocal.co.uk/wp-content/uploads/2018/12/Potatoes-2.jpg, https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/article/2020/05/07/study-potato-protein-a-winner-for-women/11369572-1-eng-GB/Study-Potato-protein-a-winner-for-women_wrbm_large.jpg, https://api.time.com/wp-content/uploads/2020/04/Boss-Turns-Into-Potato.jpg, https://bellavitashop.co.uk/6180-large_default/potatoes-500g.jpg"];
 	var potato = Math.floor(Math.random() * potatos.length);
 	
 	//set const for embed (image)
