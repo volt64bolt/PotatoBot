@@ -30,10 +30,6 @@ bot.on("message", message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-	//test command
-    if(command === "potato"){
-        message.channel.send("POTATO");
-    }
 	//help menu
 	if(command === "help"){
 		message.channel.send(":potato: this is help menu. \n p!help \n p!art \n p!potato \n p!stats");
@@ -49,7 +45,7 @@ bot.on("message", message =>{
 		var food = Math.floor(Math.random() * foods.length);
 		var actions = ["dying", "existing", "walking", "sitting", "running", "eating " + foods[food], "juggling"];
 		var action = Math.floor(Math.random() * actions.length);
-		var locations = ["on a mountain top looking out on an ocean view with a distant boat on the horizon and a blue sun", "underwater", "in space", "on mars", "where ever you want", "italy", "greece", "canada", "germany", "stinky cheese world"];
+		var locations = ["on a mountain top looking out on an ocean view with a distant boat on the horizon and a blue sun", "underwater", "in space", "on mars", "where ever you want", "italy", "greece", "canada", "germany", "in italy", "in greece", "in canada", "in germany", "in a stinky cheese world"];
 		var location = Math.floor(Math.random() * locations.length);
 		var prefixes = ["red", "blue", "green", "orange", "yellow", "purple", "cyan", "brown", "large", "small", "distant", "close", "unusual", ""];
 		var prefix2 = Math.floor(Math.random() * prefixes.length);
