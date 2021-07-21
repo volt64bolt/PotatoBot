@@ -40,7 +40,7 @@ bot.on("message", message =>{
 		var methods = ["drawing", "3D modelling", "sketching", "painting", "pixel-arting", "making a minecraft build of"];
 		var method = Math.floor(Math.random() * methods.length);
 
-		var prefixes = ["a red", "a blue", "a green", "an orange", "a yellow", "a purple", "a cyan", "a brown", "a large", "a small", "a distant", "a close", "an unusual", "a normal"];
+		var prefixes = ["a red ", "a blue ", "a green ", "an orange ", "a yellow ", "a purple ", "a cyan ", "a brown ", "a large ", "a small ", "a distant ", "a close ", "an unusual ", "a normal "];
 		var prefix2 = Math.floor(Math.random() * prefixes.length);
 
 		var themes = [prefixes[prefix2] + "cat", "cats", prefixes[prefix2] + "potato", "potatos", prefixes[prefix2] + "dog", "dogs", prefixes[prefix2] + "fish", "fish", prefixes[prefix2] + "dragon", "dragons", prefixes[prefix2] + "wild jel", "mars", "stinky cheese", prefixes[prefix2] + "angler fish", "angler fish", prefixes[prefix2] + "whale", "whales"];
@@ -58,7 +58,7 @@ bot.on("message", message =>{
 		var objects = ["boat", "cat", themes[Math.floor(Math.random() * themes.length)], "house", "cabin", "plane", "planet", "moon", "sun"];
 		var object = Math.floor(Math.random() * objects.length);
 
-		message.channel.send("Hmm, try " + methods[method] + " " + themes[theme] + " " + actions[action] + " " + locations[location] + " with a " + prefixes[prefix2] + " " + objects[object] + " in the distance" + ".");
+		message.channel.send("Hmm, try " + methods[method] + " " + themes[theme] + " " + actions[action] + " " + locations[location] + " with " + prefixes[prefix2] + " " + objects[object] + " in the distance" + ".");
 	}
 
 	//p!potato
