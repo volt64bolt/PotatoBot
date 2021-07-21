@@ -23,9 +23,9 @@ bot.on("ready", () => {
 
 //main bulk of code
 bot.on("message", message =>{
-    console.log("message");
+
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
-    console.log("prefix noted");
+
 	//bot prefix
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
@@ -52,10 +52,10 @@ bot.on("message", message =>{
 		var locations = ["on a mountain top looking out on an ocean view with a distant boat on the horizon and a blue sun", "underwater", "in space", "on mars", "where ever you want", "italy", "greece", "canada", "germany", "stinky cheese world"];
 		var location = Math.floor(Math.random() * locations.length);
 		var prefixes = ["red", "blue", "green", "orange", "yellow", "purple", "cyan", "brown", "large", "small", "distant", "close", "unusual", ""];
-		var prefix = Math.floor(Math.random() * prefixes.length);
+		var prefix2 = Math.floor(Math.random() * prefixes.length);
 		var objects = ["boat", "cat", methods[method], "house", "cabin", "plane", "planet", "moon", "sun"];
 		var object = Math.floor(Math.random() * objects.length);
-		message.channel.send("Hmm, try " + methods[method] + " " + themes[theme] + " " + actions[action] + " " + locations[location] + " with a " + prefixes[prefix] + " " + objects[object] + " in the distance" + ".");
+		message.channel.send("Hmm, try " + methods[method] + " " + themes[theme] + " " + actions[action] + " " + locations[location] + " with a " + prefixes[prefix2] + " " + objects[object] + " in the distance" + ".");
 	}
 
 	//p!potato
