@@ -62,7 +62,7 @@ bot.on("message", message =>{
 	}
 
 	//p!potato
-	if(command === "potato2"){
+	if(command === "potato"){
 	message.react("🥔");
 	message.channel.send("Here :potato: ");
 	
