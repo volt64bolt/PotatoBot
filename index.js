@@ -43,7 +43,7 @@ bot.on("message", message =>{
 		var prefixes = ["a red", "a blue", "a green", "an orange", "a yellow", "a purple", "a cyan", "a brown", "a large", "a small", "a distant", "a close", "an unusual", "a normal"];
 		var prefix2 = Math.floor(Math.random() * prefixes.length);
 
-		var themes = [prefixes[prefix] + "cat", "cats", prefixes[prefix] + "potato", "potatos", prefixes[prefix] + "dog", "dogs", prefixes[prefix] + "fish", "fish", prefixes[prefix] + "dragon", "dragons", prefixes[prefix] + "wild jel", "mars", "stinky cheese", prefixes[prefix] + "angler fish", "angler fish", prefixes[prefix] + "whale", "whales"];
+		var themes = [prefixes[prefix2] + "cat", "cats", prefixes[prefix2] + "potato", "potatos", prefixes[prefix2] + "dog", "dogs", prefixes[prefix2] + "fish", "fish", prefixes[prefix2] + "dragon", "dragons", prefixes[prefix2] + "wild jel", "mars", "stinky cheese", prefixes[prefix2] + "angler fish", "angler fish", prefixes[prefix2] + "whale", "whales"];
 		var theme = Math.floor(Math.random() * themes.length);
 
 		var foods = ["pizza", "stinky cheese", "a P O T A T O", "a burger", "a steak", "itself"];
