@@ -23,7 +23,7 @@ bot.on("ready", () => {
 
 //main bulk of code
 bot.on("message", message =>{
-    
+    console.log("message");
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
 
 	//bot prefix
@@ -41,6 +41,7 @@ bot.on("message", message =>{
 	 
 	 //random comp
 	if(command === "art"){
+		console.log("art");
 		var methods = ["drawing", "3D modelling", "sketching", "painting", "pixel-arting", "making a minecraft build of"];
 		var method = Math.floor(Math.random() * methods.length);
 		var themes = ["a cat", "cats", "a potato", "potatos", "a dog", "dogs", "a fish", "fish", "a dragon", "dragons", "a wild jel", "mars", "stinky cheese", "an angler fish", "angler fish", "a whale", "whales"];
