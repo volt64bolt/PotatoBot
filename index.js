@@ -16,7 +16,7 @@ const prefix = "p!";
 //execute on bot startup
 bot.on("ready", () => {
 	//log when bot has started
-	console.log("The Potato Bot test is up!");
+	console.log("The Potato Bot is up!");
 	//set custom status and idle
 	bot.user.setPresence({ activity: { name: "p!help" }, status: "idle" })
 });
@@ -25,7 +25,7 @@ bot.on("ready", () => {
 bot.on("message", message =>{
     console.log("message");
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
-
+    console.log("prefix noted");
 	//bot prefix
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
@@ -41,7 +41,6 @@ bot.on("message", message =>{
 	 
 	 //random comp
 	if(command === "art"){
-		console.log("art");
 		var methods = ["drawing", "3D modelling", "sketching", "painting", "pixel-arting", "making a minecraft build of"];
 		var method = Math.floor(Math.random() * methods.length);
 		var themes = ["a cat", "cats", "a potato", "potatos", "a dog", "dogs", "a fish", "fish", "a dragon", "dragons", "a wild jel", "mars", "stinky cheese", "an angler fish", "angler fish", "a whale", "whales"];
