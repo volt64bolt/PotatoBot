@@ -39,19 +39,26 @@ bot.on("message", message =>{
 	if(command === "art"){
 		var methods = ["drawing", "3D modelling", "sketching", "painting", "pixel-arting", "making a minecraft build of"];
 		var method = Math.floor(Math.random() * methods.length);
-		var themes = ["a cat", "cats", "a potato", "potatos", "a dog", "dogs", "a fish", "fish", "a dragon", "dragons", "a wild jel", "mars", "stinky cheese", "an angler fish", "angler fish", "a whale", "whales"];
+
+		var prefixes = ["a red", "a blue", "a green", "an orange", "a yellow", "a purple", "a cyan", "a brown", "a large", "a small", "a distant", "a close", "an unusual", "a normal"];
+		var prefix2 = Math.floor(Math.random() * prefixes.length);
+
+		var themes = [prefixes[prefix] + "cat", "cats", prefixes[prefix] + "potato", "potatos", prefixes[prefix] + "dog", "dogs", prefixes[prefix] + "fish", "fish", prefixes[prefix] + "dragon", "dragons", prefixes[prefix] + "wild jel", "mars", "stinky cheese", prefixes[prefix] + "angler fish", "angler fish", prefixes[prefix] + "whale", "whales"];
 		var theme = Math.floor(Math.random() * themes.length);
+
 		var foods = ["pizza", "stinky cheese", "a P O T A T O", "a burger", "a steak", "itself"];
 		var food = Math.floor(Math.random() * foods.length);
+
 		var actions = ["dying", "existing", "walking", "sitting", "running", "eating " + foods[food], "juggling"];
 		var action = Math.floor(Math.random() * actions.length);
-		var locations = ["on a mountain top looking out on an ocean view with a distant boat on the horizon and a blue sun", "underwater", "in space", "on mars", "where ever you want", "italy", "greece", "canada", "germany", "in italy", "in greece", "in canada", "in germany", "in a stinky cheese world"];
+
+		var locations = ["on a mountain top looking out on an ocean view with a distant boat on the horizon and a blue sun", "underwater", "in space", "on mars", "where ever you want", "in italy", "in greece", "in canada", "in germany", "in a stinky cheese world"];
 		var location = Math.floor(Math.random() * locations.length);
-		var prefixes = ["red", "blue", "green", "orange", "yellow", "purple", "cyan", "brown", "large", "small", "distant", "close", "unusual", ""];
-		var prefix2 = Math.floor(Math.random() * prefixes.length);
-		var objects = ["boat", "cat", methods[method], "house", "cabin", "plane", "planet", "moon", "sun"];
+
+		var objects = ["boat", "cat", themes[Math.floor(Math.random() * themes.length)], "house", "cabin", "plane", "planet", "moon", "sun"];
 		var object = Math.floor(Math.random() * objects.length);
-		message.channel.send("Hmm, try " + methods[method] + " " + prefixes[prefix2] + " " + themes[theme] + " " + actions[action] + " " + locations[location] + " with a " + prefixes[prefix2] + " " + objects[object] + " in the distance" + ".");
+
+		message.channel.send("Hmm, try " + methods[method] + " " + themes[theme] + " " + actions[action] + " " + locations[location] + " with a " + prefixes[prefix2] + " " + objects[object] + " in the distance" + ".");
 	}
 
 	//p!potato
