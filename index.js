@@ -16,7 +16,7 @@ const prefix = "p!";
 //execute on bot startup
 bot.on("ready", () => {
 	//log when bot has started
-	console.log("The Potato Bot is up!");
+	console.log("The Potato Bot test is up!");
 	//set custom status and idle
 	bot.user.setPresence({ activity: { name: "p!help" }, status: "idle" })
 });
@@ -59,7 +59,7 @@ bot.on("message", message =>{
 	}
 
 	//p!potato
-	if(command === "potato"){
+	if(command === "potato2"){
 	message.react("🥔");
 	message.channel.send("Here :potato: ");
 	
