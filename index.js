@@ -55,7 +55,7 @@ bot.on("message", message =>{
 		var prefix2 = Math.floor(Math.random() * prefixes.length);
 		var objects = ["boat", "cat", methods[method], "house", "cabin", "plane", "planet", "moon", "sun"];
 		var object = Math.floor(Math.random() * objects.length);
-		message.channel.send("Hmm, try " + methods[method] + " " + themes[theme] + " " + actions[action] + " " + locations[location] + " with a " + prefixes[prefix2] + " " + objects[object] + " in the distance" + ".");
+		message.channel.send("Hmm, try " + methods[method] + " " + prefixes[prefix2] + " " + themes[theme] + " " + actions[action] + " " + locations[location] + " with a " + prefixes[prefix2] + " " + objects[object] + " in the distance" + ".");
 	}
 
 	//p!potato
