@@ -15,14 +15,24 @@ const prefix = "p!";
 
 //execute on bot startup
 bot.on("ready", () => {
-	//log when bot has started
-	console.log("The Potato Bot is up!");
-	//set custom status and idle
-	bot.user.setPresence({ activity: { name: "p!help" }, status: "idle" })
+    console.log('The potats are rolling!');
+    bot.user.setPresence({ activity: { name: 'With potatoes' }, status: 'online' });
 });
+
+
 
 //main bulk of code
 bot.on("message", message =>{
+
+	if (message.guild.id === '872830080966078565' && !message.author.bot) {
+		if (message.channel.id === '872836416856535060') {
+			const channel = bot.channels.cache.get('891664764063858739');
+			
+			channel.send(`**📩 Recieved message from <@${message.author.id}>, DM content is:**\n${message.content}`);
+			message.delete();
+			message.reply('Thanks for submitting your idea! It will be reviewed shortly!\n\n ***Want do submit an idea of your own? Just leave it below!***')
+		}
+	}
 
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
 
