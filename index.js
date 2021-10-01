@@ -10,8 +10,8 @@ const bot = new Discord.Client();
 
 
 //set the prefix
-const prefix_1 = ("p!", "potato!");
-const prefix_2 = ("p!", "potato!");
+const prefix_1 = ("p!");
+const prefix_2 = ("potato!");
 
 //execute on bot startup
 bot.on("ready", () => {
