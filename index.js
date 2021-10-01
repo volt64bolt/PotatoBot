@@ -10,8 +10,8 @@ const bot = new Discord.Client();
 
 
 //set the prefix
-const prefix1 = "p!";
-const prefix2 = "P!";
+const prefix_1 = "p!";
+const prefix_2 = "P!";
 
 //execute on bot startup
 bot.on("ready", () => {
@@ -34,7 +34,7 @@ bot.on("message", message =>{
 		}
 	}
 
-	if(!message.content.startsWith(prefix1) || !message.content.startsWith(prefix2) || message.author.bot) return;
+	if(!message.content.startsWith(prefix_1) || !message.content.startsWith(prefix_2) || message.author.bot) return;
 
 	//bot prefix
     const args = message.content.slice(prefix.length).split(/ +/);
