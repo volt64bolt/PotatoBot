@@ -34,7 +34,8 @@ bot.on("message", message =>{
 		}
 	}
 
-	if(!message.content.startsWith(prefix_1) || !message.content.startsWith(prefix_2) || message.author.bot) return;
+	if(!message.content.startsWith(prefix_1) || message.author.bot) return;
+	if(!message.content.startsWith(prefix_2) || message.author.bot) return;
 
 	//bot prefix
     const args = message.content.slice(prefix.length).split(/ +/);
