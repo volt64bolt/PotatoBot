@@ -10,8 +10,8 @@ const bot = new Discord.Client();
 
 
 //set the prefix
-const prefixs = ["p!", "potato!"];
-
+const prefix = ("p!");
+const prefix_2 = ("potato!");
 
 //execute on bot startup
 bot.on("ready", () => {
@@ -34,7 +34,10 @@ bot.on("message", message =>{
 		}
 	}
 
-	if(!message.content.toLowerCase().startsWith(prefixs) || message.author.bot) return;
+	if(message.content.toLowerCase().startsWith(prefix) || message.content.toLowerCase().startsWith(prefix_2) || message.author.bot) {
+		return;
+	}
+
 
 
 	//bot prefix
