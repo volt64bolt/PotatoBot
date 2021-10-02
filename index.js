@@ -33,7 +33,7 @@ bot.on("message", message =>{
 		}
 	}
 
-	if(!message.content.startsWith(prefix) || message.author.bot) return;
+	if(!message.content.toLowerCase().startsWith(prefix) || message.author.bot) return;
 
 	//bot prefix
     const args = message.content.slice(prefix.length).split(/ +/);
