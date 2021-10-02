@@ -9,6 +9,10 @@ const bot = new Discord.Client();
 
 
 
+//set the prefix
+const prefix = ("p!");
+
+
 //execute on bot startup
 bot.on("ready", () => {
     console.log('The potats are rolling!');
@@ -29,11 +33,8 @@ bot.on("message", message =>{
 			message.reply('Thanks for submitting your idea! It will be reviewed shortly!\n\n ***Want do submit an idea of your own? Just leave it below!***')
 		}
 	}
-    const prefixs = ['p!', 'potato!'];
-    let hasPrefix = false;
-    prefixs.some(p => message.content.toLowerCase().startsWith(p)) ? hasPrefix = true : null;
-    if(!hasPrefix) return;
 
+	if(message.content.toLowerCase().startsWith(prefix) || message.author.bot) return;
 
 
 	//bot prefix
