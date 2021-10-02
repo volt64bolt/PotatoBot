@@ -11,7 +11,6 @@ const bot = new Discord.Client();
 
 //set the prefix
 const prefix = ("p!");
-const prefix_2 = ("potato!");
 
 //execute on bot startup
 bot.on("ready", () => {
@@ -35,7 +34,6 @@ bot.on("message", message =>{
 	}
 
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
-	if(!message.content.startsWith(prefix_2) || message.author.bot) return;
 
 	//bot prefix
     const args = message.content.slice(prefix.length).split(/ +/);
