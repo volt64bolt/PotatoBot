@@ -29,9 +29,9 @@ bot.on("message", message =>{
 			message.reply('Thanks for submitting your idea! It will be reviewed shortly!\n\n ***Want do submit an idea of your own? Just leave it below!***')
 		}
 	}
-    const prefixes = ['p!', 'potato!'];
+    const prefixs = ['p!', 'potato!'];
     let hasPrefix = false;
-    prefixes.some(p => message.content.toLowerCase().startsWith(p)) ? hasPrefix = true : null;
+    prefixs.some(p => message.content.toLowerCase().startsWith(p)) ? hasPrefix = true : null;
     if(!hasPrefix) return;
 
 
