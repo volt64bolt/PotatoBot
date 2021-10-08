@@ -39,9 +39,9 @@ bot.on("message", message =>{
         const muteRoleID = '893549622771990540'
         if (message.content.includes(pingstring)) {
             message.delete();
-            message.reply(`Please don't ping our potato god. You will be temp-muted for **${muteTime}** minutes. Please rephrase your message after that.`);
+            message.reply(`Please don't ping our potato god. You will be temp-muted for **${muteTime/60000}** minutes. Please rephrase your message after that.`);
             console.log(`Ping message detected by ${message.author} (${message.content}). Message has been deleted.`);
-			bot.channels.cache.get('888845343343669308').send('Ping message detected by ${message.author} (${message.content}). Message has been deleted.');
+			bot.channels.cache.get('888845343343669308').send(`Ping message detected by ${message.author} (${message.content}). Message has been deleted.`);
             if (!message.member.roles.cache.has(muteRoleID)) {
                 message.member.roles.add(muteRoleID).catch(console.error);
             }
