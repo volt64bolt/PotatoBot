@@ -29,9 +29,33 @@ bot.on("message", message =>{
 			
 			channel.send(`**📩 Recieved message from <@${message.author.id}>, video suggestion is:**\n${message.content}`);
 			message.delete();
-			message.reply('Thanks for submitting your idea! It will be reviewed shortly!\n\n ***Want do submit an idea of your own? Just leave it below!***')
+			message.reply('Thanks for submitting your idea! It will be reviewed shortly!\n\n ***Want do submit an idea of your own? Just leave it below!***');
 		}
 	}
+
+	if (message.guild.id === '872830080966078565' && !message.author.bot) {
+        const pingstring = '<@!263703743411912707>'
+        const muteTime = '1200000' //in ms
+        const muteRoleID = '893549622771990540'
+        if (message.content.includes(pingstring)) {
+            message.delete();
+            message.reply(`Please don't ping our potato god. You will be temp-muted for **${muteTime}** minutes. Please rephrase your message after that.`);
+            console.log(`Ping message detected by ${message.author} (${message.content}). Message has been deleted.`);
+			bot.channels.cache.get('888845343343669308').send('Ping message detected by ${message.author} (${message.content}). Message has been deleted.');
+            if (!message.member.roles.cache.has(muteRoleID)) {
+                message.member.roles.add(muteRoleID).catch(console.error);
+            }
+            setTimeout(function () {
+                unmute();
+            }, muteTime);
+            function unmute() {
+                if (message.member.roles.cache.has(muteRoleID)) {
+                    message.member.roles.remove(muteRoleID).catch(console.error);
+                }
+            }
+        }
+    }
+
 
 	if(!message.content.toLowerCase().startsWith(prefix) || message.author.bot) return;
 
