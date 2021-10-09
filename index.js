@@ -68,6 +68,10 @@ bot.on("message", message =>{
 		message.channel.send(":potato: this is help menu. \n p!help \n p!art \n p!potato \n p!stats");
       }
 	 
+	if(command === "die"){
+		message.channel.send("die.")
+
+	}
 	 //random comp
 	if(command === "art"){
 		var methods = ["drawing ", "3D modelling ", "sketching ", "painting ", "pixel-arting ", "making a minecraft build of "];
