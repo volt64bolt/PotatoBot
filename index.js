@@ -95,7 +95,7 @@ bot.on("message", message =>{
 		var objects = ["boat", "cat", themes[Math.floor(Math.random() * themes.length)], "house", "cabin", "plane", "planet", "moon", "sun"];
 		var object = Math.floor(Math.random() * objects.length);
 
-		message.channel.send("Hmm, try " + methods[method] + themes[theme] + " " + actions[action] + " " + locations[location] + " with " + prefixes[prefix2] + " " + objects[object] + " in the distance" + ".");
+		message.channel.send("Hmm, try", methods[method], themes[theme], actions[action], locations[location], "with", prefixes[prefix2], objects[object], " in the distance", ".");
 	}
 
 	//p!potato
@@ -125,14 +125,14 @@ bot.on("message", message =>{
 	message.channel.send(`serving **${bot.guilds.cache.size}** servers`);
 	}
 	//p!roastniesbot
-	if (command === "roastniesbot") {
+	if (command === "roastcheese") {
 	var roasts = ["cheese? whats that? oh, that horrible stinky stuff, ew people actuall eat that?", "cheese is just old milk thats gone of in a controlled manor, just like rotten food but controlled rot", "did someone really look at spoiled milk and go hmm yes, let me eat that"];
 	var roast = Math.floor(Math.random() * roasts.length);
 	message.channel.send("<@752306939551154317> " + roasts[roast]);
 	}
 	//p!roastjelbot
-	if (command === "roastjelbot") {
-		var roasts2 = ["", ""];
+	if (command === "roastjel") {
+		var roasts2 = ["jeldum", ""];
 		var roast2 = Math.floor(Math.random() * roasts.length);
 		message.channel.send("<@752127889440505938> " + roasts2[roast2]);
 		}
