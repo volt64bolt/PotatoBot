@@ -34,25 +34,31 @@ bot.on("message", message =>{
 	}
 
 	if (message.guild.id === '872830080966078565' && !message.author.bot) {
+		const exemptRoleID = '921412467928739841'
         const pingstring = '<@!263703743411912707>'
         const muteTime = '1200000' //in ms
         const muteRoleID = '893549622771990540'
+		const potatoRoleID = '872837465667436594'
         if (message.content.includes(pingstring)) {
-            message.delete();
-            message.reply(`Please don't ping our potato god. You will be temp-muted for **${muteTime/60000}** minutes. Please rephrase your message after that.`);
-            console.log(`Ping message detected by ${message.author} (${message.content}). Message has been deleted.`);
-			bot.channels.cache.get('888845343343669308').send(`Ping message detected by ${message.author} (${message.content}). Message has been deleted.`);
-            if (!message.member.roles.cache.has(muteRoleID)) {
-                message.member.roles.add(muteRoleID).catch(console.error);
-            }
-            setTimeout(function () {
-                unmute();
-            }, muteTime);
-            function unmute() {
-                if (message.member.roles.cache.has(muteRoleID)) {
-                    message.member.roles.remove(muteRoleID).catch(console.error);
-                }
-            }
+			if (not(message.member.roles.has(exemptRoleID))) {
+				message.delete();
+				message.reply(`Please don't ping our potato god. You will be temp-muted for **${muteTime/60000}** minutes. Please rephrase your message after that.`);
+				console.log(`Ping message detected by ${message.author} (${message.content}). Message has been deleted.`);
+				bot.channels.cache.get('888845343343669308').send(`Ping message detected by ${message.author} (${message.content}). Message has been deleted.`);
+				if (!message.member.roles.cache.has(muteRoleID)) {
+					message.member.roles.remove(potatoRoleID).catch(console.error);
+					message.member.roles.add(muteRoleID).catch(console.error);
+				}
+				setTimeout(function () {
+					unmute();
+				}, muteTime);
+				function unmute() {
+					if (message.member.roles.cache.has(muteRoleID)) {
+						message.member.roles.remove(muteRoleID).catch(console.error);
+						message.member.roles.add(potatoRoleID).catch(console.error);
+					}
+				}
+			}
         }
     }
 
