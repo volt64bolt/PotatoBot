@@ -40,7 +40,7 @@ bot.on("message", message =>{
         const muteRoleID = '893549622771990540'
 		const potatoRoleID = '872837465667436594'
         if (message.content.includes(pingstring)) {
-			if (not(message.member.roles.has(exemptRoleID))) {
+			if (!message.member.roles.cache.has(exemptRoleID)) {
 				message.delete();
 				message.reply(`Please don't ping our potato god. You will be temp-muted for **${muteTime/60000}** minutes. Please rephrase your message after that.`);
 				console.log(`Ping message detected by ${message.author} (${message.content}). Message has been deleted.`);
