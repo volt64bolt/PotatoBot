@@ -6,8 +6,7 @@ const token = process.env.BOT_TOKEN;
 
 const commands = [
 	new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
-	new SlashCommandBuilder().setName('server').setDescription('Replies with server info!'),
-	new SlashCommandBuilder().setName('user').setDescription('Replies with user info!'),
+	new SlashCommandBuilder().setName('help').setDescription('displays the fancy help menu'),
     new SlashCommandBuilder().setName('potato').setDescription('Adds a button to reply with potato')
 ]
 	.map(command => command.toJSON());

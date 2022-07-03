@@ -8,7 +8,8 @@ const Discord = require("discord.js");
 const { MessageEmbed } = require('discord.js');
 // const bot = new Discord.Client();
 const { Client, Intents } = require('discord.js');
-const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_PRESENCES] });
+// const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES});
 
 
 //set the prefix
@@ -30,26 +31,21 @@ bot.on('interactionCreate', async interaction => {
 		console.log('command detected', interaction.commandName)
 
 		if (interaction.commandName === 'ping') {
-			const row = new MessageActionRow()
-				.addComponents(
-					new MessageButton()
-						.setCustomId('primary')
-						.setLabel('Primary')
-						.setStyle('PRIMARY'),
-				);
-
-			await interaction.reply({ content: 'Pong!', components: [row] });
+			await interaction.reply({ content: 'Pong!', components: [] });
 		}
 		else if (interaction.commandName === 'potato') {
 			const row = new MessageActionRow()
-				.addComponents(
-					new MessageButton()
-						.setCustomId('potato')
-						.setLabel('Potato')
-						.setStyle('PRIMARY'),
-				);
+			.addComponents(
+				new MessageButton()
+					.setCustomId('potato')
+					.setLabel('Potato')
+					.setStyle('PRIMARY')
+			);
 
 			await interaction.reply({ content: 'Potatos!', components: [row] });
+		}
+		else if (interaction.commandName === 'help') {
+
 		}
 		else {
 			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
@@ -58,30 +54,30 @@ bot.on('interactionCreate', async interaction => {
 
 	else if (interaction.isButton()) {
 		if (interaction.customId === 'potato') {
-			interaction.update({  
-			content: "here :potato:",
-			components: []
-		 	})
-			.then(console.log)
-			.catch(console.error);
-			
 			//vars for randomisation
 			var potatos = ["https://api.time.com/wp-content/uploads/2020/04/Boss-Turns-Into-Potato.jpg", "https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/article/2020/05/07/study-potato-protein-a-winner-for-women/11369572-1-eng-GB/Study-Potato-protein-a-winner-for-women_wrbm_large.jpg"];
 			var potato = Math.floor(Math.random() * potatos.length);
 			
-			//set const for embed (image)
-			const potatoEmbed = new MessageEmbed()
+
+			// new MessageEmbed()
 			
-			//set properties of embed (image)
-			.setColor("#b79268")
-			.setTitle("Here is your potato!")
-			.setImage(potatos[potato])
-			//end of embed
+			// //set properties of embed (image)
+			// .setColor("#b79268")
+			// .setTitle("Here is your potato!")
+			// .setImage(potatos[potato])
+			// //end of embed
 			
 
+			await interaction.update({  
+				content: "here :potato:",
+				components: []
+				 })
+				.then(console.log)
+				.catch(console.error);
 		}
 		//console.log(interaction)
 	}
+	
 
 	else return;
 });
