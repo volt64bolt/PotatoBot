@@ -10,15 +10,17 @@
   "author": "Volt64bolt",
   "license": "ISC",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3",
+    "@discordjs/builders": "^0.13.0",
+    "@discordjs/rest": "^0.4.1",
+    "cheerio": "^1.0.0-rc.10",
     "cron": "^1.8.2",
-    "discord.js": "^12.5.3",
+    "discord-api-types": "^0.31.2",
+    "discord.js": "^13.8.1",
     "dotenv": "^10.0.0",
     "node-cron": "^2.0.3",
     "request": "^2.88.2",
-    "shell": "^0.8.4"
+    "shell": "^0.9.4"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/volt64bolt/PotatoBot.git"

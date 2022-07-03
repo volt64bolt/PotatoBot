@@ -5,8 +5,9 @@
 //load discord.js library
 require("dotenv").config();
 const Discord = require("discord.js");
-const bot = new Discord.Client();
-
+// const bot = new Discord.Client();
+const { Client, Intents } = require('discord.js');
+const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 
 //set the prefix
@@ -18,11 +19,33 @@ bot.on("ready", () => {
     bot.user.setPresence({ activity: { name: 'With potatoes' }, status: 'online' });
 });
 
+//'/' message test code
+const { MessageActionRow, MessageButton } = require('discord.js');
+
+bot.on('interactionCreate', async interaction => {
+	console.log(interaction);
+	if (!interaction.isCommand()) return;
+		
+	if (interaction.commandName === 'ping') {
+		console.log('ping detected', commandName)
+		const row = new MessageActionRow()
+			.addComponents(
+				new MessageButton()
+					.setCustomId('primary')
+					.setLabel('Primary')
+					.setStyle('PRIMARY'),
+			);
+
+		await interaction.reply({ content: 'Pong!', components: [row] });
+	} else if (interaction.commandName === 'potato') {
+
+	}
+});
+
 
 
 //main bulk of code
-bot.on("message", message =>{
-
+bot.on("messageCreate", message =>{
 	if (message.guild.id === '872830080966078565' && !message.author.bot) {
 		if (message.channel.id === '872836416856535060') {
 			const channel = bot.channels.cache.get('891664764063858739');
@@ -34,31 +57,40 @@ bot.on("message", message =>{
 	}
 
 	if (message.guild.id === '872830080966078565' && !message.author.bot) {
+		//console.log('message in potato server ' + message.content)
 		const exemptRoleID = '921412467928739841'
-        const pingstring = '<@!263703743411912707>'
-        const muteTime = '1200000' //in ms
-        const muteRoleID = '893549622771990540'
-		const potatoRoleID = '872837465667436594'
+        const pingstring = '<@263703743411912707>'
+        const muteTime = 1200000 //in ms
+        // const muteRoleID = '893549622771990540'
+		// const potatoRoleID = '872837465667436594'
         if (message.content.includes(pingstring)) {
+			//console.log('message includes ping')
 			if (message.mentions.everyone == false) {
+				//console.log('message doesnt ping all')
 				if (!message.member.roles.cache.has(exemptRoleID)) {
-					message.delete();
+					//console.log('user doesnt have ping exempt role')
 					message.reply(`Please don't ping our potato god. You will be temp-muted for **${muteTime/60000}** minutes. Please rephrase your message after that.`);
 					console.log(`Ping message detected by ${message.author} (${message.content}). Message has been deleted.`);
 					bot.channels.cache.get('888845343343669308').send(`Ping message detected by ${message.author} (${message.content}). Message has been deleted.`);
-					if (!message.member.roles.cache.has(muteRoleID)) {
-						message.member.roles.remove(potatoRoleID).catch(console.error);
-						message.member.roles.add(muteRoleID).catch(console.error);
-					}
-					setTimeout(function () {
-						unmute();
-					}, muteTime);
-					function unmute() {
-						if (message.member.roles.cache.has(muteRoleID)) {
-							message.member.roles.remove(muteRoleID).catch(console.error);
-							message.member.roles.add(potatoRoleID).catch(console.error);
-						}
-					}
+					//message.delete();
+					//mute user and set time to unmute
+					// if (!message.member.roles.cache.has(muteRoleID)) {
+					// 	message.member.roles.remove(potatoRoleID).catch(console.error);
+					// 	message.member.roles.add(muteRoleID).catch(console.error);
+					// }
+					// setTimeout(function () {
+					// 	unmute();
+					// }, muteTime);
+					// function unmute() {
+					// 	if (message.member.roles.cache.has(muteRoleID)) {
+					// 		message.member.roles.remove(muteRoleID).catch(console.error);
+					// 		message.member.roles.add(potatoRoleID).catch(console.error);
+					// 	}
+					// }
+					message.member.timeout(muteTime, 'Pinging the potato god.')
+					.then(() => console.log("Timed out member"))
+					.catch(console.log);
+					message.delete();
 				}
 			}
         }
