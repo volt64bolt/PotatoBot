@@ -5,6 +5,7 @@
 //load discord.js library
 require("dotenv").config();
 const Discord = require("discord.js");
+const { MessageEmbed } = require('discord.js');
 // const bot = new Discord.Client();
 const { Client, Intents } = require('discord.js');
 const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -23,23 +24,66 @@ bot.on("ready", () => {
 const { MessageActionRow, MessageButton } = require('discord.js');
 
 bot.on('interactionCreate', async interaction => {
-	console.log(interaction);
-	if (!interaction.isCommand()) return;
-		
-	if (interaction.commandName === 'ping') {
-		console.log('ping detected', commandName)
-		const row = new MessageActionRow()
-			.addComponents(
-				new MessageButton()
-					.setCustomId('primary')
-					.setLabel('Primary')
-					.setStyle('PRIMARY'),
-			);
+	//console.log(interaction);
+	if (interaction.isCommand()) {
 
-		await interaction.reply({ content: 'Pong!', components: [row] });
-	} else if (interaction.commandName === 'potato') {
+		console.log('command detected', interaction.commandName)
 
+		if (interaction.commandName === 'ping') {
+			const row = new MessageActionRow()
+				.addComponents(
+					new MessageButton()
+						.setCustomId('primary')
+						.setLabel('Primary')
+						.setStyle('PRIMARY'),
+				);
+
+			await interaction.reply({ content: 'Pong!', components: [row] });
+		}
+		else if (interaction.commandName === 'potato') {
+			const row = new MessageActionRow()
+				.addComponents(
+					new MessageButton()
+						.setCustomId('potato')
+						.setLabel('Potato')
+						.setStyle('PRIMARY'),
+				);
+
+			await interaction.reply({ content: 'Potatos!', components: [row] });
+		}
+		else {
+			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		}
 	}
+
+	else if (interaction.isButton()) {
+		if (interaction.customId === 'potato') {
+			interaction.update({  
+			content: "here :potato:",
+			components: []
+		 	})
+			.then(console.log)
+			.catch(console.error);
+			
+			//vars for randomisation
+			var potatos = ["https://api.time.com/wp-content/uploads/2020/04/Boss-Turns-Into-Potato.jpg", "https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients.com/article/2020/05/07/study-potato-protein-a-winner-for-women/11369572-1-eng-GB/Study-Potato-protein-a-winner-for-women_wrbm_large.jpg"];
+			var potato = Math.floor(Math.random() * potatos.length);
+			
+			//set const for embed (image)
+			const potatoEmbed = new MessageEmbed()
+			
+			//set properties of embed (image)
+			.setColor("#b79268")
+			.setTitle("Here is your potato!")
+			.setImage(potatos[potato])
+			//end of embed
+			
+
+		}
+		//console.log(interaction)
+	}
+
+	else return;
 });
 
 
@@ -51,8 +95,8 @@ bot.on("messageCreate", message =>{
 			const channel = bot.channels.cache.get('891664764063858739');
 			
 			channel.send(`**📩 Recieved message from <@${message.author.id}>, video suggestion is:**\n${message.content}`);
-			message.delete();
-			message.reply('Thanks for submitting your idea! It will be reviewed shortly!\n\n ***Want do submit an idea of your own? Just leave it below!***');
+			message.reply('Thanks for submitting your idea! It will be reviewed shortly!\n\n ***Want do submit an idea of your own? Just leave it below!***')
+			.then(() => message.delete());
 		}
 	}
 
@@ -89,8 +133,9 @@ bot.on("messageCreate", message =>{
 					// }
 					message.member.timeout(muteTime, 'Pinging the potato god.')
 					.then(() => console.log("Timed out member"))
+					.then(() => message.delete())
 					.catch(console.log);
-					message.delete();
+					
 				}
 			}
         }
@@ -148,13 +193,13 @@ bot.on("messageCreate", message =>{
 	var potato = Math.floor(Math.random() * potatos.length);
 	
 	//set const for embed (image)
-	const potatoEmbed = new Discord.MessageEmbed()
+	const potatoEmbed = new MessageEmbed()
 	
 	//set properties of embed (image)
 	.setColor("#b79268")
 	.setTitle("Here is your potato!")
 	.setImage(potatos[potato])
-
+	//end of embed
 	
 	message.reply(potatoEmbed);
 	//end of p!potato	
